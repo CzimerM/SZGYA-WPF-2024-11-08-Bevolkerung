@@ -29,7 +29,7 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
                 lakossag.Add(new Allampolgar(sr.ReadLine()));
             }
             sr.Close();
-            
+            dtgrdMegoldas.DataContext = lakossag;
         }
     }
 }

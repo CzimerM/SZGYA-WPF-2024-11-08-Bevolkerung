@@ -15,7 +15,12 @@
             </StackPanel>
             <StackPanel>
                 <Label FontWeight="Bold">Megoldásonként leszűrt sorok</Label>
-                <DataGrid x:Name="dtgrdMegoldas"></DataGrid>
+                <DataGrid x:Name="dtgrdMegoldas">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                        <DataGridTextColumn Header="Dohányzik" Binding="{Binding Dohanyzik}" />
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
             <StackPanel>
                 <Label FontWeight="Bold">Listás megoldás</Label>
