@@ -37,7 +37,7 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
             this.Magassag = int.Parse(adatok[4]);
             this.Dohanyzik = adatok[5] == "igen";
             this.Nemzetiseg = adatok[6];
-            this.Nepcsoport = adatok[7];
+            this.Nepcsoport = adatok[7].Trim().Length != 0 ? adatok[7] : null;
             this.Tartomany = adatok[8];
             this.NettoJovedelem = int.Parse(adatok[9]);
             this.IskolaiVegzettseg = adatok[10].Trim().Length != 0 ? adatok[10] : null;
