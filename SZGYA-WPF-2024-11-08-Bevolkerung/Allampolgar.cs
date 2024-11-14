@@ -14,14 +14,14 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
         public int SzuletesiEv { get; set; }
         public int Suly { get; set; }
         public int Magassag { get; set; }
-        public bool Dohanyzik { get; set; }
+        public bool_magyar Dohanyzik { get; set; }
         public string Nemzetiseg { get; set; }
         public string? Nepcsoport { get; set; }
         public string Tartomany { get; set; }
         public int NettoJovedelem { get; set; }
         public string? IskolaiVegzettseg { get; set; }
         public string PolitikaiNezet { get; set; }
-        public bool AktivSzavazo { get; set; }
+        public bool_magyar AktivSzavazo { get; set; }
         public int SorFogyasztasEvente { get; set; }
         public int KrumpliFogyasztasEvente { get; set; }
 
