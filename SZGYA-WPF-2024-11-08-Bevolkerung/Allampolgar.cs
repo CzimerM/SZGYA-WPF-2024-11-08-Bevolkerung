@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SZGYA_WPF_2024_11_08_Bevolkerung
 {
-    internal class Lakos
+    internal class Allampolgar
     {
         public int Id { get; set; }
         public string Nem { get; set; }
@@ -26,8 +26,9 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
         public int KrumpliFogyasztasEvente { get; set; }
 
         public int Eletkor => DateTime.Now.Year - this.SzuletesiEv;
+        public double HaviJovedelem => this.NettoJovedelem / 12;
 
-        public Lakos(string sor)
+        public Allampolgar(string sor)
         {
             string[] adatok = sor.Split(';');
             this.Id = int.Parse(adatok[0]);

@@ -17,20 +17,20 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Lakos> lakosok;
+        List<Allampolgar> lakossag;
         public MainWindow()
         {
             InitializeComponent();
-            lakosok = new();
+            lakossag = new();
             var sr = new StreamReader("../../../src/bevölkerung.txt", Encoding.UTF8);
             _ = sr.ReadLine(); // fejléc
             while(!sr.EndOfStream)
             {
-                lakosok.Add(new Lakos(sr.ReadLine()));
+                lakossag.Add(new Allampolgar(sr.ReadLine()));
             }
             sr.Close();
-            lblListaSorMennyiseg.Content = lakosok.Count;
-            lblListaElsoSor.Content = lakosok[0];
+            lblListaSorMennyiseg.Content = lakossag.Count;
+            lblListaElsoSor.Content = lakossag[0];
         }
     }
 }
