@@ -12,7 +12,7 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung.megoldasok
         { }
         public override string MondatValasz()
         {
-            return $"Éves átlagos sörfogyasztás a férfiak körében: {lakosok.Where(l => l.Nem == "férfi").Average(l => l.SorFogyasztasEvente)} l";
+            return $"Éves átlagos sörfogyasztás a férfiak körében: {lakosok.Where(l => l.Nem == "férfi").Average(l => l.ItalFogyasztasEvente)} l";
         }
     }
 }

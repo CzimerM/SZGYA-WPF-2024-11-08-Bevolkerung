@@ -11,6 +11,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+#pragma warning disable CS8604 // Possible null reference argument.
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+#pragma warning disable CS8604 // Possible null reference argument.
+
 namespace SZGYA_WPF_2024_11_08_Bevolkerung
 {
     /// <summary>
@@ -38,11 +42,11 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
             {
                 string key = $"{megoldas.Name.Replace("Megoldas", "")}.";
                 megoldasok.Add(key ,(Megoldas)Assembly.GetExecutingAssembly().CreateInstance(megoldas.FullName, false, args: new object[]{ lakossag}, bindingAttr: BindingFlags.Default, binder: null, culture: null, activationAttributes: new object[] {}));
-                cmbFeladat.Items.Add(key);
+
             }
-            //var kulcsok = megoldasok.Keys.ToList();
-            //kulcsok.Sort((a, b) => int.Parse(a.Replace(".","")).CompareTo(int.Parse(b.Replace(".",""))));
-            cmbFeladat.SelectedIndex = 0;
+            var kulcsok = megoldasok.Keys.ToList();
+            kulcsok.Sort((a, b) => int.Parse(a.Replace(".", "")).CompareTo(int.Parse(b.Replace(".", ""))));
+            kulcsok.ForEach(k => cmbFeladat.Items.Add(k));
         }
 
         private void cmbFeladat_SelectionChanged(object sender, SelectionChangedEventArgs e)

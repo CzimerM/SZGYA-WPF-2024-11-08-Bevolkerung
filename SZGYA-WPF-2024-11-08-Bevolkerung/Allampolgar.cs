@@ -22,7 +22,7 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
         public string? IskolaiVegzettseg { get; set; }
         public string PolitikaiNezet { get; set; }
         public bool_magyar AktivSzavazo { get; set; }
-        public int SorFogyasztasEvente { get; set; }
+        public int ItalFogyasztasEvente { get; set; }
         public int KrumpliFogyasztasEvente { get; set; }
 
         public int Eletkor => DateTime.Now.Year - this.SzuletesiEv;
@@ -44,13 +44,13 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
             this.IskolaiVegzettseg = adatok[10].Trim().Length != 0 ? adatok[10] : null;
             this.PolitikaiNezet = adatok[11];
             this.AktivSzavazo = adatok[12] == "igen";
-            this.SorFogyasztasEvente = adatok[13] == "NA" ? -1 : int.Parse(adatok[13]);
+            this.ItalFogyasztasEvente = adatok[13] == "NA" ? -1 : int.Parse(adatok[13]);
             this.KrumpliFogyasztasEvente = adatok[14] == "NA" ? -1 : int.Parse(adatok[14]);
         }
 
         public override string ToString()
         {
-            return $"{this.Id} {this.Nem} {this.SzuletesiEv} {this.Suly} {this.Magassag} {this.Dohanyzik} {this.Nemzetiseg} {this.Nepcsoport} {this.Tartomany} {this.NettoJovedelem} {this.IskolaiVegzettseg} {this.PolitikaiNezet} {this.AktivSzavazo} {this.SorFogyasztasEvente} {this.KrumpliFogyasztasEvente}";
+            return $"{this.Id} {this.Nem} {this.SzuletesiEv} {this.Suly} {this.Magassag} {this.Dohanyzik} {this.Nemzetiseg} {this.Nepcsoport} {this.Tartomany} {this.NettoJovedelem} {this.IskolaiVegzettseg} {this.PolitikaiNezet} {this.AktivSzavazo} {this.ItalFogyasztasEvente} {this.KrumpliFogyasztasEvente}";
         }
         public string ToString(bool v)
         {
