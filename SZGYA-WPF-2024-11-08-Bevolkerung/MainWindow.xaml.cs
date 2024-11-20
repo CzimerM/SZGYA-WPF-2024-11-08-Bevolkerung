@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 using System.Windows;
+using System.Reflection;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -18,6 +19,7 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
     public partial class MainWindow : Window
     {
         List<Allampolgar> lakossag;
+        Dictionary<string, Megoldas> megoldasok;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +31,26 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
                 lakossag.Add(new Allampolgar(sr.ReadLine()));
             }
             sr.Close();
-            dtgrdMegoldas.DataContext = lakossag;
+            dtgrdMegoldas.ItemsSource = lakossag;
+            var mods = Assembly.GetExecutingAssembly().DefinedTypes;
+            megoldasok = new();
+            foreach (var megoldas in mods.Where(m => m.Name.Contains("Megoldas") && m.Name.Length > "Megoldas".Length))
+            {
+                string key = $"{megoldas.Name.Replace("Megoldas", "")}.";
+                megoldasok.Add(key ,(Megoldas)Assembly.GetExecutingAssembly().CreateInstance(megoldas.FullName, false, args: new object[]{ lakossag}, bindingAttr: BindingFlags.Default, binder: null, culture: null, activationAttributes: new object[] {}));
+                cmbFeladat.Items.Add(key);
+            }
+            //var kulcsok = megoldasok.Keys.ToList();
+            //kulcsok.Sort((a, b) => int.Parse(a.Replace(".","")).CompareTo(int.Parse(b.Replace(".",""))));
+            cmbFeladat.SelectedIndex = 0;
+        }
+
+        private void cmbFeladat_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var kivalasztottMegoldas = megoldasok[cmbFeladat.SelectedItem as string];
+            lblMegoldas.Content = kivalasztottMegoldas.MondatValasz();
+            dtgrdMegoldas.ItemsSource = kivalasztottMegoldas.GridValasz();
+            lstvwMegoldas.ItemsSource = kivalasztottMegoldas.ListaValasz();
         }
     }
 }

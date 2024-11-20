@@ -52,5 +52,16 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung
         {
             return $"{this.Id} {this.Nem} {this.SzuletesiEv} {this.Suly} {this.Magassag} {this.Dohanyzik} {this.Nemzetiseg} {this.Nepcsoport} {this.Tartomany} {this.NettoJovedelem} {this.IskolaiVegzettseg} {this.PolitikaiNezet} {this.AktivSzavazo} {this.SorFogyasztasEvente} {this.KrumpliFogyasztasEvente}";
         }
+        public string ToString(bool v)
+        {
+            if (v)
+            {
+                return $"{this.Id} {this.Nem} {this.SzuletesiEv} {this.Suly} {this.Magassag}";
+            }
+            else
+            {
+                return $"{this.Id} {this.Nemzetiseg} {this.Nepcsoport} {this.Tartomany} {this.NettoJovedelem}";
+            }
+        }
     }
 }
