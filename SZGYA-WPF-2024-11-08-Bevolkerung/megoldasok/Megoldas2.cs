@@ -12,7 +12,7 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung.megoldasok
         { }
         public override string MondatValasz()
         {
-            return $"Az állampolgárok átlagos nettó éves jövedelme {lakosok.Average(l => l.NettoJovedelem)} EUR";
+            return $"Az állampolgárok átlagos nettó éves jövedelme {Math.Round(lakosok.Average(l => l.NettoJovedelem), 2)} EUR";
         }
     }
 }
