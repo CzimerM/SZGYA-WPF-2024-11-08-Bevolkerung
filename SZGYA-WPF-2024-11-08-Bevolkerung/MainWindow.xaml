@@ -35,7 +35,7 @@
                     <DataGridTextColumn Header="Iskolai végzettség" Binding="{Binding IskolaiVegzettseg}" />
                     <DataGridTextColumn Header="Politikai nézet" Binding="{Binding PolitikaiNezet}" />
                     <DataGridTextColumn Header="Aktív szavazó" Binding="{Binding AktivSzavazo}" />
-                    <DataGridTextColumn Header="Ital fogyasztás évente" Binding="{Binding ItalFogyasztasEvente}" />
+                    <DataGridTextColumn Header="Sör fogyasztás évente" Binding="{Binding SorFogyasztasEvente}" />
                     <DataGridTextColumn Header="Krumpli fogyasztás évente" Binding="{Binding KrumpliFogyasztasEvente}" />
                 </DataGrid.Columns>
             </DataGrid>
