@@ -12,7 +12,7 @@ namespace SZGYA_WPF_2024_11_08_Bevolkerung.megoldasok
         { }
         public override List<string> ListaValasz()
         {
-            return base.ListaValasz();
+            return lakosok.GroupBy(l => l.Tartomany).Select(g => new { t = g.Key, n = g.Max(g => g.NettoJovedelem)}).OrderBy(l => l.n).Select(l => $"{l.t} {l.n}").ToList();
         }
     }
 }
